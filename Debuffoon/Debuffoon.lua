@@ -232,17 +232,20 @@ local function UpdateAnchor(id)
 
     icon:ClearAllPoints()
 
+    -- ONLY position and show if a button is found
     if button then
-        -- Button found: Position the icon as an overlay
         icon.anchored = true
         icon:SetScale(1)
         icon:SetPoint("TOPLEFT", button, "TOPLEFT", -4, 4)
         icon:SetPoint("BOTTOMRIGHT", button, "BOTTOMRIGHT", 4, -4)
-        -- We do NOT call Show() here; let ScanTarget handle visibility
     else
-        -- Button NOT found: Hide it and unset anchored status
+        -- NO button found: 
+        -- 1. Unset the anchor
+        -- 2. Explicitly hide the icon
+        -- 3. RETURN so it doesn't fall through to the floating logic
         icon.anchored = false
-        icon:Hide() 
+        icon:Hide()
+        return 
     end
     
     ApplyLockState(icon)
