@@ -1,0 +1,8 @@
+## Interface: 20505
+## Title: Debuffoon
+## Notes: Shows a movable overlay when tracked debuffs are on your target. /dbf to configure.
+## Author: GraveBear
+## Version: 1.0
+## SavedVariables: DeBuffoonDB
+
+Debuffoon.lua
